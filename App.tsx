@@ -1,20 +1,19 @@
 import React, {FC} from 'react';
-import {Image, Text, View} from "react-native";
+import {NavigationContainer} from "@react-navigation/native";
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomeScreen from "./src/screen/HomeScreen";
+import OrderDelivery from "./src/screen/OrderDelivery";
+
+const Stack = createNativeStackNavigator();
 
 const App: FC = () => {
     return (
-        <View>
-            <Text>Swann</Text>
-            <Image
-                style={{
-                    height: 30,
-                    width: 40
-                }}
-                source={{
-                uri: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&dl=freestocks-9UVmlIb0wJU-unsplash.jpg&w=640&q=80&fm=jpg&crop=entropy&cs=tinysrgb'
-            }}/>
-            <Text>This is footer</Text>
-        </View>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName={'Home'}>
+                <Stack.Screen name={'Home'} component={HomeScreen}/>
+                <Stack.Screen name={'Order'} component={OrderDelivery}/>
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 };
 
