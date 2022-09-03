@@ -1,18 +1,13 @@
 import React, {FC} from 'react';
-import {Button, Text, View} from "react-native";
+import {Text, View} from "react-native";
 
 export interface HomeScreeTypes {
-    navigation: any;
 }
 
-const HomeScreen: FC<HomeScreeTypes> = ({navigation}) => {
+const HomeScreen: FC<HomeScreeTypes> = () => {
     return (
         <View>
             <Text>Hello from home screen</Text>
-            <Button
-                title={'Go to Order'}
-                onPress={() => navigation.navigate('Order')}
-            />
         </View>
     );
 };

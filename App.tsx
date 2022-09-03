@@ -1,17 +1,20 @@
 import React, {FC} from 'react';
-import {NavigationContainer} from "@react-navigation/native";
+import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from "./src/screen/HomeScreen";
-import OrderDelivery from "./src/screen/OrderDelivery";
+import BottomNavigation from "./src/navigation/BottomNavigation";
 
 const Stack = createNativeStackNavigator();
 
 const App: FC = () => {
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName={'Home'}>
-                <Stack.Screen name={'Home'} component={HomeScreen}/>
-                <Stack.Screen name={'Order'} component={OrderDelivery}/>
+        <NavigationContainer theme={DefaultTheme}>
+            <Stack.Navigator
+                screenOptions={{
+                    headerShown: false
+                }}
+                initialRouteName='Navigation'
+            >
+                <Stack.Screen name='Navigation' component={BottomNavigation}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
